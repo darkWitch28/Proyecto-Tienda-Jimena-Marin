@@ -16,7 +16,7 @@ public class Categoria implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCategoria")
+    @Column(name = "id_categoria")
     private Long idCategoria;
     
     @NotBlank(message = "La descripción no puede estar vacía")
@@ -36,7 +36,7 @@ public class Categoria implements Serializable {
 
     @Column(name = "fecha_modificacion", insertable = false, updatable = false)
     private LocalDateTime fechaModificacion;
- 
+  
     public Categoria() {
 
     }
@@ -46,8 +46,7 @@ public class Categoria implements Serializable {
         this.activo = activo;
     }
     
-    // Relación de uno a muchos con la clase Producto
-    // Sin "cascade" ni "orphanRemoval" para evitar la propagación de operaciones.
     @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
+    
 }

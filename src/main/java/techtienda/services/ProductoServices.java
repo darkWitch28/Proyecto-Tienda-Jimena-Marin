@@ -24,7 +24,7 @@ public class ProductoServices {
         return productoRepository.findAll();
     }
     @Transactional(readOnly = true)
-    public Optional<Producto> getProducto(Integer idProducto) {
+    public Optional<Producto> getProducto(Long idProducto) {
         return productoRepository.findById(idProducto);
     }
  
@@ -48,7 +48,7 @@ public class ProductoServices {
     }
  
     @Transactional
-    public void delete(Integer idProducto) {
+    public void delete(Long idProducto) {
         // Verifica si el producto existe antes de intentar eliminarlo
         if (!productoRepository.existsById(idProducto)) {
             // Lanza una excepción para indicar que el usuario no fue encontrado

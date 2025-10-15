@@ -48,7 +48,7 @@ public class ProductoController {
     }
  
     @PostMapping("/eliminar")
-    public String eliminar(@RequestParam Integer idProducto, RedirectAttributes redirectAttributes) {
+    public String eliminar(@RequestParam Long idProducto, RedirectAttributes redirectAttributes) {
         String titulo="todoOk";
         String detalle="mensaje.eliminado";
         try {
@@ -68,7 +68,7 @@ public class ProductoController {
     }
  
     @GetMapping("/modificar/{idProducto}")    
-    public String modificar(@PathVariable("idProducto") Integer idProducto, Model model, RedirectAttributes redirectAttributes) {
+    public String modificar(@PathVariable("idProducto") Long idProducto, Model model, RedirectAttributes redirectAttributes) {
         Optional<Producto> productoOpt = productoServices.getProducto(idProducto);
         if (productoOpt.isEmpty()) {
             redirectAttributes.addFlashAttribute("error", messageSource.getMessage("producto.error01", null, Locale.getDefault()));

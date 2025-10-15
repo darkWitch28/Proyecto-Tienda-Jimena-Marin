@@ -37,9 +37,13 @@ public class Producto implements Serializable {
 
     @NotNull(message = "El campo de existencias no puede estar vacío.")
     @Min(value = 0, message = "Las existencias deben ser un número mayor o igual a 0.")
-    private Integer existencias;
+    private Long existencias;
 
     @Column(name = "ruta_imagen", length = 1024)
     private String rutaImagen;
     private boolean activo;
+    
+    @ManyToOne
+    @JoinColumn(name = "idCtegoria")
+    private Categoria categoria;
 }
